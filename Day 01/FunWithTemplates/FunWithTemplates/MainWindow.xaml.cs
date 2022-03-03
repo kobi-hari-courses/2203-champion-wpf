@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FunWithXaml
+namespace FunWithTemplates
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,9 +23,6 @@ namespace FunWithXaml
         public MainWindow()
         {
             InitializeComponent();
-
-            var p = paul;
-            var j = john;
         }
     }
 }

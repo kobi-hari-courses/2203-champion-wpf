@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:y="clr-namespace:FunWithXaml"
         mc:Ignorable="d"
-        Title="Hello World" Height="450" Width="800">
+        Title="Hello World" Height="450" Width="800"
+        d:DesignWidth="1000" d:DesignHeight="1000"
+        >
     <StackPanel>
         <Ellipse Fill="Red" Width="100" Height="100" StrokeThickness="4" Margin="5">
             <Ellipse.Stroke>
@@ -14,9 +16,24 @@
         </Ellipse>
         <TextBlock Text="Hello" Foreground="Blue" FontSize="16"/>
         <Button Margin="10" Padding="10" FontSize="20">
-            <y:Person FirstName="John" Age="42" FavoriteColor="Green">
-                
-            </y:Person>
+            <Button.Content>
+                <y:Person x:Name="john" Age="42" FavoriteColor="Green" Phrase="{y:Repeater Text=Hello, Times=10}">
+                    <y:Person.DisplayName>
+                        <y:HumanName FirstName="John" LastName="Smith" MiddleName="Johney"></y:HumanName>
+                    </y:Person.DisplayName>
+                    <y:Person.Children>
+                        <y:Person x:Name="paul" DisplayName="Paul McCartney" Age="21" FavoriteColor="Purple"/>
+                        <y:Person DisplayName="George" Age="21" FavoriteColor="Purple"/>
+                        <y:Person DisplayName="Ringo" Age="21" FavoriteColor="Purple"/>
+                    </y:Person.Children>
+                    <y:Person.RoleOwners>
+                        <y:Person x:Key="Insurance Agent" DisplayName="Paul" Age="21" FavoriteColor="Purple"/>
+
+                    </y:Person.RoleOwners>
+
+                </y:Person>
+
+            </Button.Content>
         </Button>
     </StackPanel>
 </Window>
