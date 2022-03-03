@@ -99,7 +99,7 @@
     <Grid>
         <Button Style="{DynamicResource ButtonStyle1}" 
                 HorizontalAlignment="Center" VerticalAlignment="Center" Padding="10"
-                Background="Magenta"
+                Background="Linen"
                 BorderBrush="Purple"
                 >
             <local:Person FirstName="Ringo" LastName="Starr"/>
