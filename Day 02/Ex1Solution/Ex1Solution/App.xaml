@@ -1,0 +1,68 @@
+﻿<Application x:Class="Ex1Solution.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Ex1Solution"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <local:Rgb x:Key="rgb" Red="100" Green="10" Blue="0"/>
+        <local:Point3D x:Key="point3D" X="100" Y="200" Z="300"/>
+        <local:Character x:Key="character" FontName="Arial" FontSize="12px" Text="Hello World"/>
+
+        <DataTemplate DataType="{x:Type local:Rgb}">
+            <StackPanel>
+                <TextBlock Foreground="Red" Text="Red"/>
+                <TextBlock Text="{Binding Red}"/>
+                <TextBlock Foreground="Green" Text="Green"/>
+                <TextBlock Text="{Binding Green}"/>
+                <TextBlock Foreground="Blue" Text="Blue"/>
+                <TextBlock Text="{Binding Blue}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local:Point3D}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="X: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding X}"/>
+                <TextBlock Text="Y: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding Y}"/>
+                <TextBlock Text="Z: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding Z}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local:Character}">
+            <StackPanel>
+                <TextBlock Text="Font Name: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding FontName}"/>
+                <TextBlock Text="Font Size: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding FontSize}"/>
+                <TextBlock Text="Text: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding Text}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <ControlTemplate x:Key="fancyCheckCox" TargetType="{x:Type CheckBox}">
+            <Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CheckStates">
+                        <VisualStateGroup.Transitions>
+                            <VisualTransition GeneratedDuration="00:00:00.5000000"/>
+                        </VisualStateGroup.Transitions>
+                        <VisualState x:Name="Checked"/>
+                        <VisualState x:Name="Unchecked">
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                    <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState x:Name="Indeterminate"/>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <Ellipse x:Name="ellipse" Stroke="Red" StrokeThickness="2" Fill="{TemplateBinding Background}"/>
+                <ContentPresenter Margin="30"/>
+            </Grid>
+        </ControlTemplate>
+
+    </Application.Resources>
+</Application>
