@@ -1,0 +1,65 @@
+﻿<Window x:Class="FunWithItemsControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FunWithItemsControl"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:Fleet></local:Fleet>
+    </Window.DataContext>
+    <DockPanel>
+        <StackPanel 
+            Width="150"
+            DockPanel.Dock="Right"
+            DataContext="{Binding ElementName=listBox, Path=SelectedItem}"
+            Margin="10"
+            >
+            <TextBlock Text="Name"/>
+            <TextBox Text="{Binding DisplayName}"/>
+            <TextBlock Text="Color" Margin="0,5"/>
+            <ComboBox SelectedItem="{Binding Color}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate DataType="{x:Type Color}">
+                        <Rectangle Height="10" Width="100">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{Binding}"/>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+                <ComboBox.Items>
+                    <Color>Red</Color>
+                    <Color>Green</Color>
+                    <Color>Blue</Color>
+                    <Color>Yellow</Color>
+                    <Color>Cyan</Color>
+                    <Color>Magenta</Color>
+                    <Color>Orange</Color>
+                    <Color>Tomato</Color>
+                    <Color>Teal</Color>
+                </ComboBox.Items>
+                
+            </ComboBox>
+            <TextBlock Text="{Binding X, StringFormat=X: \{0\}}" Margin="0,10"/>
+            <Slider Minimum="-200" Maximum="200" Value="{Binding X}" TickFrequency="10" IsSnapToTickEnabled="True" TickPlacement="TopLeft"
+                    Foreground="Black"
+                    />
+            <TextBlock Text="{Binding Y, StringFormat=Y: \{0\}}" Margin="0,10"/>
+            <Slider Minimum="-200" Maximum="200" Value="{Binding Y}" TickFrequency="10" IsSnapToTickEnabled="True" TickPlacement="TopLeft"
+                    Foreground="Black"
+                    />
+
+        </StackPanel>
+        <ListBox 
+            x:Name="listBox"
+            ItemsSource="{Binding Ships}"
+            SelectedIndex="2"
+            Style="{StaticResource radarListBox}"
+            >
+
+        </ListBox>
+
+    </DockPanel>
+</Window>
