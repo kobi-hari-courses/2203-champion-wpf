@@ -6,3 +6,4 @@ WPF Course for Champion March 2022
 * [Day 02 - Layout, Panels and Resources](Day%2002/README.md)
 * [Day 03 - Dependency Properties and Data Binding](Day%2003/README.md)
 * [Day 04 - Items controls, and TPL](Day%2004/README.md)
+* [Day 05 - More TPL and Mvvm](Day%2005/README.md)
