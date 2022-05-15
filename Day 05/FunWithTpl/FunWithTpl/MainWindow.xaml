@@ -9,12 +9,21 @@
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="5">
             <Button x:Name="btnStart" Margin="5" Click="btnStart_Click">Start</Button>
-            <Button x:Name="btnCancel" Margin="5">Cancel</Button>
+            <Button x:Name="btnCancel" Margin="5" Click="btnCancel_Click">Cancel</Button>
             <TextBlock x:Name="txt" Text="Idle" FontSize="20" Foreground="Green" Margin="5"/>
+        </StackPanel>
+        <StackPanel x:Name="rangePanel" DockPanel.Dock="Right" Width="200" Background="LightGreen" Visibility="Collapsed">
+            <TextBlock Text="From"></TextBlock>
+            <TextBox x:Name="txtFrom">2</TextBox>
+            <TextBlock Text="To"></TextBlock>
+            <TextBox x:Name="txtTo">350000</TextBox>
+            <Button x:Name="btnSetRange" Click="btnSetRange_Click" Margin="0,10" Padding="10">GO!</Button>
+            
         </StackPanel>
         <ProgressBar 
             x:Name="progress"
             DockPanel.Dock="Top" Height="40" Margin="5"
+            Minimum="0" Maximum="1"
             IsIndeterminate="False"
             >
             
