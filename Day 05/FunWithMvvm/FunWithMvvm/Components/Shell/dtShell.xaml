@@ -1,5 +1,4 @@
 ﻿<ShellVm xmlns="clr-namespace:FunWithMvvm.Components.Shell;assembly=FunWithMvvm"
          Title="Hello Designer"
          >
-    
 </ShellVm>
